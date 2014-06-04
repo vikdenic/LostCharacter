@@ -15,7 +15,12 @@
 {
     self.allCharactersArray = [NSArray new];
     self.plistArray = [NSMutableArray new];
-    [self loadPList];
+//    [self loadPList];
+    [self load];
+    if (self.allCharactersArray.count < 1)
+    {
+        [self loadPList];
+    }
 }
 
 -(void)load
@@ -53,6 +58,7 @@
         [self.plistArray addObject:character3];
 
         self.allCharactersArray = [NSArray arrayWithArray:self.plistArray];
+        [self.tableView reloadData];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
