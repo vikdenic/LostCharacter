@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *hometownCellLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ageCellLabel;
 @property (weak, nonatomic) IBOutlet UILabel *seatCellLabel;
-@property (weak, nonatomic) IBOutlet UILabel *purposeCellLabel;
+@property (weak, nonatomic) IBOutlet UILabel *professionCellLabel;
 
 @end

@@ -7,18 +7,56 @@
 		<string>Matthew Fox</string>
 		<key>passenger</key>
 		<string>Jack Shephard</string>
+		<key>age</key>
+		<integer>42</integer>
+		<key>hometown</key>
+		<string>California</string>
+		<key>profession</key>
+		<string>Surgeon</string>
+		<key>seat</key>
+		<string>7A</string>
 	</dict>
 	<dict>
 		<key>actor</key>
 		<string>Evangeline Lilly</string>
 		<key>passenger</key>
 		<string>Kate Austen</string>
+		<key>age</key>
+		<integer>37</integer>
+		<key>hometown</key>
+		<string>Iowa</string>
+		<key>profession</key>
+		<string>Fugitive</string>
+		<key>seat</key>
+		<string>14D</string>
 	</dict>
 	<dict>
 		<key>actor</key>
 		<string>Jorge Garcia</string>
 		<key>passenger</key>
-		<string>Hugo “Hurley” Reyes</string>
+		<string>Hurley Reyes</string>
+		<key>age</key>
+		<integer>34</integer>
+		<key>hometown</key>
+		<string>California</string>
+		<key>profession</key>
+		<string>Cashier</string>
+		<key>seat</key>
+		<string>16C</string>
+	</dict>
+	<dict>
+		<key>actor</key>
+		<string>Josh Holloway</string>
+		<key>passenger</key>
+		<string>Sawyer Ford</string>
+		<key>age</key>
+		<integer>44</integer>
+		<key>hometown</key>
+		<string>Alabama</string>
+		<key>profession</key>
+		<string>Con Artist</string>
+		<key>seat</key>
+		<string>33C</string>
 	</dict>
 </array>
 </plist>

@@ -15,7 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *ageLabel;
 @property (weak, nonatomic) IBOutlet UITextField *seatLabel;
-@property (weak, nonatomic) IBOutlet UITextField *purposeLabel;
+@property (weak, nonatomic) IBOutlet UITextField *professionLabel;
 
 @end
 
@@ -39,21 +39,21 @@
     NSNumber *age = [NSNumber numberWithInt:ageInt];
 
     NSString *seat = self.seatLabel.text;
-    NSString *purpose = self.purposeLabel.text;
+    NSString *profession = self.professionLabel.text;
 
     [character setValue:actor forKeyPath:@"actor"];
     [character setValue:passenger forKeyPath:@"passenger"];
     [character setValue:hometown forKeyPath:@"hometown"];
     [character setValue:age forKeyPath:@"age"];
     [character setValue:seat forKeyPath:@"seat"];
-    [character setValue:purpose forKeyPath:@"purpose"];
+    [character setValue:profession forKeyPath:@"profession"];
 
     [self.actorNameLabel resignFirstResponder];
     [self.lostNameLabel resignFirstResponder];
     [self.hometownLabel resignFirstResponder];
     [self.ageLabel resignFirstResponder];
     [self.seatLabel resignFirstResponder];
-    [self.purposeLabel resignFirstResponder];
+    [self.professionLabel resignFirstResponder];
 }
 
 @end
