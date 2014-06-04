@@ -25,6 +25,8 @@
 		93A71F7B193E479100B28F4C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A71F56193E479000B28F4C /* CoreData.framework */; };
 		93A71F83193E479100B28F4C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93A71F81193E479100B28F4C /* InfoPlist.strings */; };
 		93A71F85193E479100B28F4C /* LostCharacterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A71F84193E479100B28F4C /* LostCharacterTests.m */; };
+		93A71F91193E67FC00B28F4C /* lost.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93A71F90193E67FC00B28F4C /* lost.plist */; };
+		93A71F97193E765A00B28F4C /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A71F96193E765A00B28F4C /* AddViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,9 @@
 		93A71F80193E479100B28F4C /* LostCharacterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LostCharacterTests-Info.plist"; sourceTree = "<group>"; };
 		93A71F82193E479100B28F4C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		93A71F84193E479100B28F4C /* LostCharacterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LostCharacterTests.m; sourceTree = "<group>"; };
+		93A71F90193E67FC00B28F4C /* lost.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lost.plist; sourceTree = "<group>"; };
+		93A71F95193E765A00B28F4C /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		93A71F96193E765A00B28F4C /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,9 +128,12 @@
 		93A71F58193E479000B28F4C /* LostCharacter */ = {
 			isa = PBXGroup;
 			children = (
+				93A71F90193E67FC00B28F4C /* lost.plist */,
 				93A71F61193E479000B28F4C /* AppDelegate.h */,
 				93A71F62193E479000B28F4C /* AppDelegate.m */,
 				93A71F64193E479000B28F4C /* Main.storyboard */,
+				93A71F95193E765A00B28F4C /* AddViewController.h */,
+				93A71F96193E765A00B28F4C /* AddViewController.m */,
 				93A71F6A193E479000B28F4C /* MasterViewController.h */,
 				93A71F6B193E479000B28F4C /* MasterViewController.m */,
 				93A71F6D193E479000B28F4C /* DetailViewController.h */,
@@ -244,6 +252,7 @@
 			files = (
 				93A71F71193E479000B28F4C /* Images.xcassets in Resources */,
 				93A71F5D193E479000B28F4C /* InfoPlist.strings in Resources */,
+				93A71F91193E67FC00B28F4C /* lost.plist in Resources */,
 				93A71F66193E479000B28F4C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +274,7 @@
 			files = (
 				93A71F6F193E479000B28F4C /* DetailViewController.m in Sources */,
 				93A71F6C193E479000B28F4C /* MasterViewController.m in Sources */,
+				93A71F97193E765A00B28F4C /* AddViewController.m in Sources */,
 				93A71F69193E479000B28F4C /* LostCharacter.xcdatamodeld in Sources */,
 				93A71F63193E479000B28F4C /* AppDelegate.m in Sources */,
 				93A71F5F193E479000B28F4C /* main.m in Sources */,
