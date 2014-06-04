@@ -10,8 +10,6 @@
 @property NSArray *allCharactersArray;
 @property NSMutableArray *plistArray;
 
-@property (strong, nonatomic) NSManagedObject *selectedManagedObjectContext;
-
 @property NSInteger indexPathRowToBeDeleted;
 
 @end
@@ -35,62 +33,31 @@
 -(void)load
 {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Character"];
-    self.allCharactersArray = [self.managedObjectContext executeFetchRequest:request error:nil];
-    NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"actor" ascending:YES];
 
+    self.allCharactersArray = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"age" ascending:YES];
     request.sortDescriptors = [NSArray arrayWithObjects:sortDescriptor1, nil];
+    self.allCharactersArray = [self.managedObjectContext executeFetchRequest:request error:nil];
+
     [self.managedObjectContext save:nil];
     [self.tableView reloadData];
 }
 
 -(void)loadPList
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"lost" ofType:@"plist"];
-    NSArray *array = [NSArray arrayWithContentsOfFile:path];
+    NSURL *path = [[NSBundle mainBundle] URLForResource:@"lost" withExtension:@"plist"];
+    NSArray *array = [NSArray arrayWithContentsOfURL:path];
 
-        NSManagedObject *character1 = [NSEntityDescription insertNewObjectForEntityForName:@"Character" inManagedObjectContext:self.managedObjectContext];
+    for (NSDictionary *dictionary in array) {
+         NSManagedObject *character= [NSEntityDescription insertNewObjectForEntityForName:@"Character" inManagedObjectContext:self.managedObjectContext];
 
-        NSManagedObject *character2 = [NSEntityDescription insertNewObjectForEntityForName:@"Character" inManagedObjectContext:self.managedObjectContext];
-
-        NSManagedObject *character3 = [NSEntityDescription insertNewObjectForEntityForName:@"Character" inManagedObjectContext:self.managedObjectContext];
-
-            NSManagedObject *character4 = [NSEntityDescription insertNewObjectForEntityForName:@"Character" inManagedObjectContext:self.managedObjectContext];
-
-        [character1 setValue:[[array objectAtIndex:0]objectForKey:@"actor"] forKey:@"actor"];
-        [character1 setValue:[[array objectAtIndex:0]objectForKey:@"passenger"] forKey:@"passenger"];
-        [character1 setValue:[[array objectAtIndex:0]objectForKey:@"age"] forKey:@"age"];
-        [character1 setValue:[[array objectAtIndex:0]objectForKey:@"hometown"] forKey:@"hometown"];
-        [character1 setValue:[[array objectAtIndex:0]objectForKey:@"profession"] forKey:@"profession"];
-        [character1 setValue:[[array objectAtIndex:0]objectForKey:@"seat"] forKey:@"seat"];
-
-        [self.plistArray addObject:character1];
-
-        [character2 setValue:[[array objectAtIndex:1]objectForKey:@"actor"] forKey:@"actor"];
-        [character2 setValue:[[array objectAtIndex:1]objectForKey:@"passenger"] forKey:@"passenger"];
-        [character2 setValue:[[array objectAtIndex:1]objectForKey:@"age"] forKey:@"age"];
-        [character2 setValue:[[array objectAtIndex:1]objectForKey:@"hometown"] forKey:@"hometown"];
-        [character2 setValue:[[array objectAtIndex:1]objectForKey:@"profession"] forKey:@"profession"];
-        [character2 setValue:[[array objectAtIndex:1]objectForKey:@"seat"] forKey:@"seat"];
-        [self.plistArray addObject:character2];
-
-        [character3 setValue:[[array objectAtIndex:2]objectForKey:@"actor"] forKey:@"actor"];
-        [character3 setValue:[[array objectAtIndex:2]objectForKey:@"passenger"] forKey:@"passenger"];
-        [character3 setValue:[[array objectAtIndex:2]objectForKey:@"age"] forKey:@"age"];
-        [character3 setValue:[[array objectAtIndex:2]objectForKey:@"hometown"] forKey:@"hometown"];
-        [character3 setValue:[[array objectAtIndex:2]objectForKey:@"profession"] forKey:@"profession"];
-        [character3 setValue:[[array objectAtIndex:2]objectForKey:@"seat"] forKey:@"seat"];
-        [self.plistArray addObject:character3];
-
-        [character4 setValue:[[array objectAtIndex:3]objectForKey:@"actor"] forKey:@"actor"];
-        [character4 setValue:[[array objectAtIndex:3]objectForKey:@"passenger"] forKey:@"passenger"];
-        [character4 setValue:[[array objectAtIndex:3]objectForKey:@"age"] forKey:@"age"];
-        [character4 setValue:[[array objectAtIndex:3]objectForKey:@"hometown"] forKey:@"hometown"];
-        [character4 setValue:[[array objectAtIndex:3]objectForKey:@"profession"] forKey:@"profession"];
-        [character4 setValue:[[array objectAtIndex:3]objectForKey:@"seat"] forKey:@"seat"];
-        [self.plistArray addObject:character4];
-
-        self.allCharactersArray = [NSArray arrayWithArray:self.plistArray];
-        [self.tableView reloadData];
+        for (NSString *key in dictionary.allKeys) {
+            [character setValue:[dictionary valueForKey:key] forKey:key];
+        }
+        [self.plistArray addObject:character];
+    }
+    self.allCharactersArray = [NSArray arrayWithArray:self.plistArray];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Delegates
@@ -103,8 +70,6 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *character = [self.allCharactersArray objectAtIndex:indexPath.row];
-
-    self.selectedManagedObjectContext = character;
 
     CharacterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
@@ -143,12 +108,18 @@
 {
     if (buttonIndex == 1) {
 
-        NSMutableArray *copiedMutableArray = [NSMutableArray arrayWithArray:self.allCharactersArray];
-        [copiedMutableArray removeObjectAtIndex:self.indexPathRowToBeDeleted];
-        self.allCharactersArray = copiedMutableArray;
+//        NSMutableArray *copiedMutableArray = [NSMutableArray arrayWithArray:self.allCharactersArray];
 
-        [self.tableView reloadData];
-        NSLog(@"ALL CHARACTERS ARRAY IS %@",self.allCharactersArray);
+        //* Need to delete from ManagedObjectContext
+        NSManagedObject *character = [self.allCharactersArray objectAtIndex:self.indexPathRowToBeDeleted];
+        [self.managedObjectContext deleteObject:character];
+
+        [self.managedObjectContext save:nil];
+//        [copiedMutableArray removeObjectAtIndex:self.indexPathRowToBeDeleted];
+//        self.allCharactersArray = copiedMutableArray;
+//        [self.tableView reloadData];
+        [self load];
+//        NSLog(@"ALL CHARACTERS ARRAY IS %@",self.allCharactersArray);
     }
 }
 
