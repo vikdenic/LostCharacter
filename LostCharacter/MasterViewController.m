@@ -2,6 +2,7 @@
 
 #import "MasterViewController.h"
 #import "AddViewController.h"
+#import "CharacterTableViewCell.h"
 
 @interface MasterViewController() <UITableViewDataSource>
 
@@ -69,9 +70,15 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *character = [self.allCharactersArray objectAtIndex:indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = [character valueForKey:@"actor"];
-    cell.detailTextLabel.text = [character valueForKey:@"passenger"];
+    CharacterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+//    cell.textLabel.text = [character valueForKey:@"actor"];
+//    cell.detailTextLabel.text = [character valueForKey:@"passenger"];
+    cell.actorCellLabel.text = [character valueForKey:@"actor"];
+    cell.passengerCellLabel.text = [character valueForKey:@"passenger"];
+    cell.hometownCellLabel.text = [character valueForKey:@"hometown"];
+    cell.ageCellLabel.text = [NSString stringWithFormat:@"%@", [character valueForKey:@"age"]];
+    cell.seatCellLabel.text = [character valueForKey:@"seat"];
+    cell.purposeCellLabel.text = [character valueForKey:@"purpose"];
 
     return cell;
 }

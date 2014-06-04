@@ -27,6 +27,7 @@
 		93A71F85193E479100B28F4C /* LostCharacterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A71F84193E479100B28F4C /* LostCharacterTests.m */; };
 		93A71F91193E67FC00B28F4C /* lost.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93A71F90193E67FC00B28F4C /* lost.plist */; };
 		93A71F97193E765A00B28F4C /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A71F96193E765A00B28F4C /* AddViewController.m */; };
+		93A71F9A193EB42000B28F4C /* CharacterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A71F99193EB42000B28F4C /* CharacterTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		93A71F90193E67FC00B28F4C /* lost.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lost.plist; sourceTree = "<group>"; };
 		93A71F95193E765A00B28F4C /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
 		93A71F96193E765A00B28F4C /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		93A71F98193EB42000B28F4C /* CharacterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterTableViewCell.h; sourceTree = "<group>"; };
+		93A71F99193EB42000B28F4C /* CharacterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 				93A71F61193E479000B28F4C /* AppDelegate.h */,
 				93A71F62193E479000B28F4C /* AppDelegate.m */,
 				93A71F64193E479000B28F4C /* Main.storyboard */,
+				93A71F98193EB42000B28F4C /* CharacterTableViewCell.h */,
+				93A71F99193EB42000B28F4C /* CharacterTableViewCell.m */,
 				93A71F95193E765A00B28F4C /* AddViewController.h */,
 				93A71F96193E765A00B28F4C /* AddViewController.m */,
 				93A71F6A193E479000B28F4C /* MasterViewController.h */,
@@ -277,6 +282,7 @@
 				93A71F97193E765A00B28F4C /* AddViewController.m in Sources */,
 				93A71F69193E479000B28F4C /* LostCharacter.xcdatamodeld in Sources */,
 				93A71F63193E479000B28F4C /* AppDelegate.m in Sources */,
+				93A71F9A193EB42000B28F4C /* CharacterTableViewCell.m in Sources */,
 				93A71F5F193E479000B28F4C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
